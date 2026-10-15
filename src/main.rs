@@ -6,7 +6,7 @@ fn main() {
     loop {
         let mut n = String::new();
         io::stdin().read_line(&mut n).expect("Failed to read line");
-        let mut n = n.trim();
+        let n = n.trim();
         if n == "" {
             continue;
         } else {
