@@ -20,7 +20,9 @@ fn main() {
             } else if n <= 0 {
                 println!("NaN");
                 return;
-            } else {s += n}
+            } else {
+                s += n
+            }
         }
     }
 
