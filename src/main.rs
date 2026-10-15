@@ -1,16 +1,14 @@
-use std::io;
+use std::io::{self, BufRead};
 
 fn main() {
     let mut s: i128 = 0;
 
-    loop {
-        let mut n = String::new();
-        io::stdin().read_line(&mut n).expect("Failed to read line");
-        let n = n.trim();
-        if n == "" {
+    for n in io::stdin().lock().lines() {
+        let n = n.unwrap();
+        if n.trim() == "" {
             continue;
         } else {
-            let n: i128 = match n.parse() {
+            let n: i128 = match n.trim().parse() {
                 Ok(num) => num,
                 Err(_) => {
                     println!("NaN");
@@ -22,9 +20,7 @@ fn main() {
             } else if n <= 0 {
                 println!("NaN");
                 return;
-            } else {
-                s += n;
-            }
+            } else {s += n}
         }
     }
 
